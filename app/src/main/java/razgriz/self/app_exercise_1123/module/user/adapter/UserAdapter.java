@@ -63,6 +63,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
                 .into(holder.imgAvatar);
 
         holder.txtName.setText(user.getName());
+        holder.txtStaff.setVisibility(user.isSiteAdmin() ? View.VISIBLE : View.GONE);
 
         holder.itemView.setOnClickListener(v -> {
             if (callback != null) {
@@ -76,6 +77,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
         View itemView;
         ImageView imgAvatar;
         TextView txtName;
+        View txtStaff;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -83,6 +85,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
             this.itemView = itemView;
             imgAvatar = itemView.findViewById(R.id.imgAvatar);
             txtName = itemView.findViewById(R.id.txtName);
+            txtStaff = itemView.findViewById(R.id.txtStaff);
         }
     }
 }
