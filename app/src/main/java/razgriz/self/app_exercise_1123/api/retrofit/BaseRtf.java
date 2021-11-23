@@ -1,5 +1,7 @@
 package razgriz.self.app_exercise_1123.api.retrofit;
 
+import org.json.JSONObject;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -47,10 +49,18 @@ abstract class BaseRtf<T> {
     String execute(Call<String> call) throws Exception {
         Response<String> response = call.execute();
 
+
         if (response.isSuccessful()) {
             return response.body();
         } else {
-            throw new ApiException(response.code(), response.message(), response.body());
+            String errorBody = response.errorBody() == null ? "" : response.errorBody().string();
+            String message;
+            String documentationUrl;
+            JSONObject jsonObject = new JSONObject(errorBody);
+            message = jsonObject.optString("message", "");
+            documentationUrl = jsonObject.optString("documentation_url", "");
+
+            throw new ApiException(response.code(), message, documentationUrl);
         }
     }
 

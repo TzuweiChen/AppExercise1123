@@ -13,7 +13,8 @@
         android:theme="@style/Theme.AppExercise1123">
         <activity
             android:name=".module.user.activity.UserListActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="User List">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

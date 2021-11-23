@@ -62,7 +62,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
                 .circleCrop()
                 .into(holder.imgAvatar);
 
-        holder.txtName.setText(user.getName());
+        holder.txtName.setText(user.getLogin());
         holder.txtStaff.setVisibility(user.isSiteAdmin() ? View.VISIBLE : View.GONE);
 
         holder.itemView.setOnClickListener(v -> {

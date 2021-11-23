@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @SerializedName("login")
-    private String name;
+    private String login;
 
     @SerializedName("id")
     private int id;
@@ -18,8 +18,20 @@ public class User implements Serializable {
     @SerializedName("site_admin")
     private boolean isSiteAdmin;
 
-    public String getName() {
-        return name;
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("bio")
+    private String bio;
+
+    @SerializedName("location")
+    private String location;
+
+    @SerializedName("blog")
+    private String blog;
+
+    public String getLogin() {
+        return login;
     }
 
     public int getId() {
@@ -32,5 +44,21 @@ public class User implements Serializable {
 
     public boolean isSiteAdmin() {
         return isSiteAdmin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getBlog() {
+        return blog;
     }
 }
