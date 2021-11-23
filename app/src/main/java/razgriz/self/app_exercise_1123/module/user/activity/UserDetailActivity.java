@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import razgriz.self.app_exercise_1123.R;
-import razgriz.self.app_exercise_1123.module.user.fragment.UserListFragment;
+import razgriz.self.app_exercise_1123.module.user.fragment.UserDetailFragment;
 
-public class UserListActivity extends AppCompatActivity {
+public class UserDetailActivity extends AppCompatActivity {
 
 
     @Override
@@ -21,7 +21,8 @@ public class UserListActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_fragment_container);
 
-        Fragment fragment = UserListFragment.newInstance();
+        Fragment fragment = UserDetailFragment.newInstance();
+        fragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment, fragment.getClass().getName()).commit();
     }
 }

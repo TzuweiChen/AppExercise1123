@@ -14,13 +14,19 @@
         <activity
             android:name=".module.user.activity.UserListActivity"
             android:exported="true"
-            android:label="User List">
+            android:label="User List"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".module.user.activity.UserDetailActivity"
+            android:label="User Detail"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

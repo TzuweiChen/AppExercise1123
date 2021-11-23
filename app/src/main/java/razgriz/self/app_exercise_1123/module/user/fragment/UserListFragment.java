@@ -1,6 +1,7 @@
 package razgriz.self.app_exercise_1123.module.user.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import razgriz.self.app_exercise_1123.R;
 import razgriz.self.app_exercise_1123.bean.User;
+import razgriz.self.app_exercise_1123.constant.ExtraKey;
+import razgriz.self.app_exercise_1123.module.user.activity.UserDetailActivity;
 import razgriz.self.app_exercise_1123.module.user.adapter.UserAdapter;
 import razgriz.self.app_exercise_1123.module.user.model.GetUserModel;
 import razgriz.self.app_exercise_1123.module.user.model.GetUsersModel;
@@ -79,8 +82,9 @@ public class UserListFragment extends Fragment implements UserAdapter.Callback {
         getUserModel.getProgress().observe(getViewLifecycleOwner(), isProgress -> progressBar.setVisibility(isProgress ? View.VISIBLE : View.GONE));
         getUserModel.getError().observe(getViewLifecycleOwner(), error -> Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show());
         getUserModel.getUser().observe(getViewLifecycleOwner(), user -> {
-            // todo intent to user detail page
-            Toast.makeText(requireContext(), user.getName(), Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(requireContext(), UserDetailActivity.class);
+            intent.putExtra(ExtraKey.USER, user);
+            startActivity(intent);
         });
 
     }
