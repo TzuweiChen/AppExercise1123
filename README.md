@@ -13,3 +13,8 @@ call from UserListFragment, when user click list item in it, will call get API t
 
 ![](https://github.com/TzuweiChen/AppExercise1123/blob/master/detail.png)
 
+
+#### Todo
+
+- PagedListAdapter、PagedList、LivePagedListBuilder is Deprecated, using newets to replace it
+- Using kotlin
